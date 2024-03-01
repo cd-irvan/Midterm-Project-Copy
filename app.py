@@ -237,10 +237,7 @@ if app_mode == "Visualization":
       plt.show()
 
     with tab5:
-
-      # Compute the correlation matrix
-      corr_matrix = Insurance_data.corr()
-
+        
       # Generate a heatmap
       tab5.subheader("A Correlation Map")
       fig,ax = plt.subplots(figsize=(width1, width1))
