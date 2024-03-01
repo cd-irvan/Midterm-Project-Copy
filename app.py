@@ -13,8 +13,6 @@ import streamlit as st
 import random
 from PIL import Image
 import altair as alt
-from htbuilder import HtmlElement, div, hr, a, p, img, styles
-from htbuilder.units import percent, px
 
 def main():
     def _max_width_():
