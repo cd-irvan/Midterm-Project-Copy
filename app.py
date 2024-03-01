@@ -223,7 +223,7 @@ if app_mode == "Visualization":
 
     with tab4:
 
-      tab4.subheader("")
+      tab4.subheader("A scatterplot")
 
       # Plotting
       st.scatter_chart(data=Insurance_data, x="bmi", y="charges", color=None, size=None, width=0, height=0, use_container_width=True)
