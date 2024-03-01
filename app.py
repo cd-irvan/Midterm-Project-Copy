@@ -56,8 +56,8 @@ if app_mode == 'Introduction':
 
     Cover_Image = Image.open("medical-bills.jpg")
 
-    with st.columns(3)[0]:
-      st.image(Cover_Image, width=500)
+    
+    st.image(Cover_Image, width=500)
 
     st.title("The Cost of Medical Care")
     st.header("Understanding the factors that affect your final bill")
