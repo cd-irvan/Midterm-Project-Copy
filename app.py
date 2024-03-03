@@ -344,13 +344,13 @@ if app_mode == "Prediction":
         st.write(f'Predicted final insurance bill: {cost}')
 
     if Region == "Northeast":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
+        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 0]]
         cost_calculator(cost_data)
     elif Region == "Northwest":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
+        cost_data = [[Age, BMI, Child, Sex, Smoker, 1, 0, 0]]
         cost_calculator(cost_data)
     elif Region == "Southeast":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
+        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 1, 0]]
         cost_calculator(cost_data)
     elif Region == "Southwest":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
