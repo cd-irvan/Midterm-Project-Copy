@@ -49,7 +49,9 @@ Insurance_data_encoded = pd.get_dummies(Insurance_data, columns=['sex', 'smoker'
 
 st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
-app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
+#app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])\
+pages = ['Introduction', 'Visualization', 'Prediction']
+app_mode = st.sidebar.radio("Select Page", pages)
 list_variables = Insurance_data.columns
 
 
