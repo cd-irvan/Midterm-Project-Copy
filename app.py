@@ -61,7 +61,7 @@ if app_mode == 'Introduction':
     st.image(Cover_Image, width=700)
 
     st.title("The Cost of Medical Care")
-    st.header("Understanding the factors that affect your final bill")
+    st.header("Understanding the factors that affect your final medical bill")
 
     st.markdown("                               ")
 
