@@ -52,11 +52,24 @@ st.sidebar.markdown("---")
 pages = ['Introduction', 'Visualization', 'Prediction']
 custom_css = """
 <style>
-div.row-widget.stRadio > div{flex-direction:row;}
-div.st-bf{flex-direction:column;}
-div.st-bf > div{flex-direction:row;}
-label.css-19ih76x{margin-right:10px;font-size:20px;}
-div.stRadio > label{font-size:16px;}
+/* Increase the font size and the spacing for the labels */
+div.stRadio > label {
+    font-size: 20px; /* Adjust font size here */
+    padding: 5px 10px; /* Adjust padding here */
+}
+
+/* Custom styles for the radio button itself */
+div.stRadio > div[role="radiogroup"] > label > span:first-child {
+    height: 1em; /* Adjust the size of the circle */
+    width: 1em; /* Adjust the size of the circle */
+    margin-top: 5px; /* Adjust the alignment with the text if needed */
+}
+
+/* Increase the size of the clickable radio area */
+div.stRadio > div[role="radiogroup"] > label > span:first-child > span {
+    height: 1em; /* Adjust the size of the inner circle */
+    width: 1em; /* Adjust the size of the inner circle */
+}
 </style>
 """
 
