@@ -50,7 +50,10 @@ st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 #app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])\
 pages = ['Introduction', 'Visualization', 'Prediction']
-app_mode = st.sidebar.radio("Select Page", pages)
+for page in pages:
+    if st.sidebar.button(page):
+        app_mode = page
+#app_mode = st.sidebar.radio("Select Page", pages)
 list_variables = Insurance_data.columns
 
 import streamlit as st
