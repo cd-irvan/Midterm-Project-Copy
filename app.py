@@ -55,7 +55,7 @@ list_variables = Insurance_data.columns
 
 import streamlit as st
 
-col1, col2, col3 = st.sidebar.columns(2)
+col1, col2, col3 = st.sidebar.columns(3)
 
 with col1:
     button1 = st.button('Button 1')
