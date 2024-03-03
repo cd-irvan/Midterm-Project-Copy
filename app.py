@@ -13,6 +13,7 @@ from PIL import Image
 import altair as alt
 
 def main():
+    st.set_page_config(page_title="Your App Title", page_icon=":tada:", layout="wide", initial_sidebar_state="expanded", theme={"base": "dark"})
     def _max_width_():
         max_width_str = f"max-width: 1000px;"
         st.markdown(
