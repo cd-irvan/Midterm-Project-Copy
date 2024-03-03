@@ -246,7 +246,7 @@ if app_mode == "Visualization":
 
     with tab3:
 
-      tab3.subheader("Average Charges by Age of the patient")
+      tab3.subheader("Average Charges by Age of the Patient")
       # Calculate the average charges by age
       avg_charges_by_age = Insurance_data.groupby('age')['charges'].mean().sort_values()
 
