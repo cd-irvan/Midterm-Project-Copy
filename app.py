@@ -52,11 +52,23 @@ st.sidebar.markdown("---")
 pages = ['Introduction', 'Visualization', 'Prediction']
 custom_css = """
 <style>
-div.row-widget.stRadio > div{flex-direction:row;}
-div.st-bf{flex-direction:column;}
-div.st-bf > div{flex-direction:row;}
-label.css-19ih76x{margin-right:10px;font-size:30px;}
-div.stRadio > label{font-size:25px;}
+/* Increase the font size for the labels */
+div.stRadio > label {
+    font-size: 25px; /* Adjust font size here */
+}
+
+/* Adjust the size of the radio buttons */
+div.stRadio > label > div:first-child {
+    height: 25px; /* Adjust radio button size */
+    width: 25px; /* Adjust radio button size */
+    margin-top: 3px; /* Adjust if needed to align with the label text */
+}
+
+/* Adjust the size of the inner circle of the radio buttons */
+div.stRadio > label > div:first-child > div {
+    height: 25px; /* Adjust inner circle size */
+    width: 25px; /* Adjust inner circle size */
+}
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
