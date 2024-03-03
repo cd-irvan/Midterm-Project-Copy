@@ -347,8 +347,8 @@ if app_mode == "Prediction":
     Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
     Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
 
-    Sex = 1 if sex == "Male" else 0
-    Smoker = 1 if smoker == "Yes" else 0
+    Sex = 1 if Sex == "Male" else 0
+    Smoker = 1 if Smoker == "Yes" else 0
 
     
 
