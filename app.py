@@ -50,30 +50,6 @@ st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 #app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
 pages = ['Introduction', 'Visualization', 'Prediction']
-custom_css = """
-<style>
-/* Increase the font size for the labels */
-div.stRadio > label {
-    font-size: 25px; /* Adjust font size here */
-}
-
-/* Adjust the size of the radio buttons */
-div.stRadio > label > div:first-child {
-    height: 25px; /* Adjust radio button size */
-    width: 25px; /* Adjust radio button size */
-    margin-top: 3px; /* Adjust if needed to align with the label text */
-}
-
-/* Adjust the size of the inner circle of the radio buttons */
-div.stRadio > label > div:first-child > div {
-    height: 25px; /* Adjust inner circle size */
-    width: 25px; /* Adjust inner circle size */
-}
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
-
-# Your radio button code
 app_mode = st.sidebar.radio('Select Page', pages)
 list_variables = Insurance_data.columns
 
