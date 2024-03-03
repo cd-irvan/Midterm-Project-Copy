@@ -54,7 +54,7 @@ custom_css = """
 <style>
 /* Increase the font size and the spacing for the labels */
 div.stRadio > label {
-    font-size: 20px; /* Adjust font size here */
+    font-size: 25px; /* Adjust font size here */
     padding: 5px 10px; /* Adjust padding here */
 }
 
