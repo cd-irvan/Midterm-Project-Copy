@@ -261,20 +261,34 @@ if app_mode == "Visualization":
       plt.grid(axis='y', linestyle='--', alpha=0.7)
       plt.show()
 
+    # with tab4:
+
+    #   tab4.subheader("A scatterplot")
+
+    #   # Plotting
+    #   st.scatter_chart(data=Insurance_data, x="bmi", y="charges", color=None, size=None, width=0, height=0, use_container_width=True)
+    #   st.write(" ")
+    #   plt.figure(figsize=(10, 6))
+    #   plt.scatter(Insurance_data_encoded['bmi'], Insurance_data_encoded['charges'], alpha=0.5, color='dodgerblue')
+    #   plt.title('Scatter Plot of Insurance Charges')
+    #   plt.xlabel('bmi')
+    #   plt.ylabel('Charges')
+    #   plt.grid(True, which='both', linestyle='--', alpha=0.5)
+    #   plt.show()
+
     with tab4:
 
-      tab4.subheader("A scatterplot")
+    with tab4:
+        tab4.subheader("Pairplot for All Columns")
 
-      # Plotting
-      st.scatter_chart(data=Insurance_data, x="bmi", y="charges", color=None, size=None, width=0, height=0, use_container_width=True)
-      st.write(" ")
-      plt.figure(figsize=(10, 6))
-      plt.scatter(Insurance_data_encoded['bmi'], Insurance_data_encoded['charges'], alpha=0.5, color='dodgerblue')
-      plt.title('Scatter Plot of Insurance Charges')
-      plt.xlabel('bmi')
-      plt.ylabel('Charges')
-      plt.grid(True, which='both', linestyle='--', alpha=0.5)
-      plt.show()
+
+        fig = sns.pairplot(Insurance_data)
+
+        plt.suptitle('Pairwise Relationships Across All Columns', y=1.02)
+
+
+        st.pyplot(fig)
+
 
     with tab5:
 
