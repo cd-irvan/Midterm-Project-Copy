@@ -183,25 +183,25 @@ if app_mode == 'Introduction':
 
     st.markdown("##### Description of the Key Variables")
     st.markdown("- Age")
-    st.markdown("This column contains the recorded ages of the patients in the dataset.")
+    st.markdown("This column contains the recorded ages of the insured people in the dataset.")
 
     st.markdown("- Sex")
-    st.markdown("This column contains the recorded sex of the patients in the dataset.")
+    st.markdown("This column contains the recorded sex of the insured people in the dataset.")
 
     st.markdown("- BMI")
-    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the patient in metres, foe each patient in the dataset. ")
+    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, foe each patient in the dataset. ")
 
     st.markdown("- Children")
-    st.markdown("This column indicates whether the patient is a child (represented by 1) or an adult (represented by 0).")
+    st.markdown("This column indicates the number of dependent children the insured person has.")
 
     st.markdown("- Smoker")
-    st.markdown("This column indicates whether the patient is a smoker (represented by 1) or a non-smoker (represented by 0).")
+    st.markdown("This column indicates whether the insured patient is a smoker or a non-smoker.")
 
     st.markdown("- Charges")
     st.markdown("This column records the total billed amount paid by each patient in the dataset for insurance. ")
 
     st.markdown("- Region")
-    st.markdown("This column gives the region of the United States from where the patient receieved medical care. ")
+    st.markdown("This column gives the region of the United States from where the insured person receieved medical care. ")
 
 if app_mode == "Visualization":
 
