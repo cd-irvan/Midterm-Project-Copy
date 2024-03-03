@@ -346,6 +346,10 @@ if app_mode == "Prediction":
     Child = st.number_input("Are you a child? (Enter 1 for Yes, and 0 for No): ")
     Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
     Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
+
+    Sex = 1 if sex == "Male" else 0
+    Smoker = 1 if smoker == "Yes" else 0
+
     
 
 
