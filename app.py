@@ -323,13 +323,13 @@ if app_mode == "Prediction":
 
     BMI = 0
     st.write("Enter your details below to estimate the cost of your final insurance bill : ")
-    Age = st.number_input("Enter your age:", min_value=18, max_value=110, value=18, step=1, format="%d")
+    Age = st.number_input("Enter your age:", min_value=18, max_value=110, value=18, step=1)
     Sex = st.selectbox("Select your sex:", options=["Male", "Female"])
     Height = st.number_input("Enter your height in metres: ")
     Weight = st.number_input("Enter your weight in kilograms: ")
     if(Height != 0):
        BMI = Weight/(Height ** 2)
-    Child = st.number_input("Please enter the number of dependent children you have: ", format="%d")
+    Child = st.number_input("Please enter the number of dependent children you have: ")
     Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
     Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
 
