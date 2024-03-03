@@ -281,7 +281,7 @@ if app_mode == "Visualization":
       # Generate a heatmap
       tab5.subheader("A Correlation Map")
       fig,ax = plt.subplots(figsize=(width1, width1))
-      sns.heatmap(Insurance_data.corr(), annot=True, fmt=".2f", cmap='coolwarm', square=True, linewidths=.5)
+      sns.heatmap(Insurance_data_encoded.corr(), annot=True, fmt=".2f", cmap='coolwarm', square=True, linewidths=.5)
       plt.title('Correlation Matrix of Insurance Dataset')
       tab5.write(fig)
 
