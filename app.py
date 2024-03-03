@@ -56,7 +56,7 @@ div.row-widget.stRadio > div{flex-direction:row;}
 div.st-bf{flex-direction:column;}
 div.st-bf > div{flex-direction:row;}
 label.css-19ih76x{margin-right:10px;font-size:30px;}
-div.stRadio > label{font-size:16px;}
+div.stRadio > label{font-size:25px;}
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
