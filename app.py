@@ -329,7 +329,7 @@ if app_mode == "Prediction":
     Weight = st.number_input("Enter your weight in kilograms: ")
     if(Height != 0):
        BMI = Weight/(Height ** 2)
-    Child = st.number_input("Enter the number of dependent children you have: ")
+    Child = st.number_input("Number of Dependents:",min_value=0, max_value=100, value=0, step=1)
     Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
     Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
 
