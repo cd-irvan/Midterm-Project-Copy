@@ -277,8 +277,6 @@ if app_mode == "Visualization":
     #   plt.show()
 
     with tab4:
-
-    with tab4:
         tab4.subheader("Pairplot for All Columns")
 
 
