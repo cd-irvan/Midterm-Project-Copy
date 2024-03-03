@@ -50,7 +50,20 @@ st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 #app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
 pages = ['Introduction', 'Visualization', 'Prediction']
-app_mode = st.sidebar.radio("Select Page", pages)
+custom_css = """
+<style>
+div.row-widget.stRadio > div{flex-direction:row;}
+div.st-bf{flex-direction:column;}
+div.st-bf > div{flex-direction:row;}
+label.css-19ih76x{margin-right:10px;font-size:20px;}
+div.stRadio > label{font-size:16px;}
+</style>
+"""
+
+st.markdown(custom_css, unsafe_allow_html=True)
+
+# Your radio button code
+app_mode = st.sidebar.radio('Select Page', pages)
 list_variables = Insurance_data.columns
 
 if app_mode == 'Introduction':
