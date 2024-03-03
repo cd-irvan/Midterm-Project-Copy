@@ -115,9 +115,10 @@ if app_mode == 'Introduction':
     st.markdown("Quartiles")
     st.markdown("Maximum")
 
-    st.write("Description for the original dataset")
-
     st.markdown("### Description of Data")
+
+    st.markdown("Description for the original dataset")
+    
     st.dataframe(Insurance_data.describe())
 
     # Display missing values information
@@ -148,9 +149,8 @@ if app_mode == 'Introduction':
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
-    st.write("Description for the cleaned dataset")
-
-    st.markdown("### Description of Data")
+    st.markdown("Description for the cleaned dataset")
+    
     st.dataframe(Insurance_data_encoded.describe())
 
     # Display missing values information
