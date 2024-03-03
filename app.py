@@ -321,17 +321,28 @@ if app_mode == "Prediction":
     st.scatter_chart(data = comparison_df, x="Actual", y="Predicted", color=None, size=None, width=0, height=0, use_container_width=True)
     st.write(" ")
 
+    # BMI = 0
+    # st.write("Enter your details below to estimate the cost of your final insurance bill : ")
+    # Age = st.number_input("Enter your age : ")
+    # Sex = st.number_input("Enter your sex: ")
+    # Height = st.number_input("Enter your height in metres: ")
+    # Weight = st.number_input("Enter your weight in kilograms: ")
+    # if(Height != 0):
+    #   BMI = Weight/(Height ** 2)
+    # Child = st.number_input("Are you a child? (Enter 1 for Yes, and 0 for No): ")
+    # Smoker = st.number_input("Are you a smoker? (Enter 1 for Yes, and 0 for No): ")
+    # Region = st.text_input("Which region do you live in? : ")
+    
     BMI = 0
-    st.write("Enter your details below to estimate the cost of your final insurance bill : ")
-    Age = st.number_input("Enter your age : ")
-    Sex = st.number_input("Enter your sex: ")
-    Height = st.number_input("Enter your height in metres: ")
-    Weight = st.number_input("Enter your weight in kilograms: ")
+    Age = st.number_input("Enter your age:", min_value=18, max_value=110, value=30)
+    Sex = st.selectbox("Select your sex:", options=["Male", "Female"])
+    Height = st.number_input("Enter your height in meters:", min_value=0.5, max_value=2.5, value=1.75, step=0.01)
+    Weight = st.number_input("Enter your weight in kilograms:", min_value=30, max_value=200, value=70, step=1)
     if(Height != 0):
-      BMI = Weight/(Height ** 2)
-    Child = st.number_input("Are you a child? (Enter 1 for Yes, and 0 for No): ")
-    Smoker = st.number_input("Are you a smoker? (Enter 1 for Yes, and 0 for No): ")
-    Region = st.text_input("Which region do you live in? : ")
+        BMI = weight / (height ** 2)
+    Child = st.number_input("Number of children:", min_value=0, max_value=10, value=0)
+    Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
+    Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
 
     def cost_calculator(cost_caluclator):
         cost = model.predict(cost_data)
