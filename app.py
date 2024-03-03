@@ -343,16 +343,16 @@ if app_mode == "Prediction":
         cost = model.predict(cost_data)
         st.write(f'Predicted final insurance bill: {cost}')
 
-    if Region.lower() == "northeast":
+    if Region == "Northeast":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
-    elif Region.lower() == "northwest":
+    elif Region == "Northwest":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
-    elif Region.lower() == "southeast":
+    elif Region == "Southeast":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
-    elif Region.lower() == "southwest":
+    elif Region == "Southwest":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
 
