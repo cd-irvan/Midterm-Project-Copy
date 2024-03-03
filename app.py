@@ -56,20 +56,6 @@ for page in pages:
 #app_mode = st.sidebar.radio("Select Page", pages)
 list_variables = Insurance_data.columns
 
-import streamlit as st
-
-col1, col2, col3 = st.sidebar.columns(3)
-
-with col1:
-    button1 = st.button('Button 1')
-
-with col2:
-    button2 = st.button('Button 2')
-
-with col3:
-    button3 = st.button('Button 3')
-
-
 if app_mode == 'Introduction':
 
     Cover_Image = Image.open("medical-bills.jpg")
