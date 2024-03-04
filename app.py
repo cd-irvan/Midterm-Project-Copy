@@ -42,48 +42,18 @@ def main():
     # hide the footer
     hide_header_footer()
 
-# Dictionary of pages and their corresponding images
-pages_images = {
-    "Introduction": "/medical-bills.jpg",  # Replace with actual path or URL
-    "Visualization": "/medical-bills.jpg",  # Replace with actual path or URL
-    "Prediction": "/medical-bills.jpg"  # Replace with actual path or URL
-}
-
-
-# A function to display a clickable image
-def image_select(image_path, page_name, key):
-    with st.container():
-        if st.button("", key=key):
-            st.session_state.current_page = page_name
-        st.image(image_path, width=100, caption=page_name)
-
-
-# Initialize the session state for current page if not already set
-if 'current_page' not in st.session_state:
-    st.session_state.current_page = "Introduction"
-
-
-
 Insurance_data = pd.read_csv("insurance.csv")
 
 Insurance_data_encoded = pd.get_dummies(Insurance_data, columns=['sex', 'smoker', 'region'], drop_first=True)
 
 st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
-# #app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
-# pages = ['Introduction', 'Visualization', 'Prediction']
-# app_mode = st.sidebar.radio('Select Page', pages)
+#app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
+pages = ['Introduction', 'Visualization', 'Prediction']
+app_mode = st.sidebar.radio('Select Page', pages)
 list_variables = Insurance_data.columns
 
-
-# Display images in a horizontal layout
-cols = st.columns(len(pages_images))
-for idx, (page_name, image_path) in enumerate(pages_images.items()):
-    with cols[idx]:
-        image_select(image_path, page_name, f"button_{idx}")
-
-
-if st.session_state.current_page == "Introduction":
+if app_mode == 'Introduction':
 
     Cover_Image = Image.open("medical-bills.jpg")
 
@@ -125,7 +95,7 @@ if st.session_state.current_page == "Introduction":
 
     st.markdown("                               ")
 
-    st.markdown(" Most importantly, medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
+    st.markdown(" Most importantly, Medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
 
     st.markdown("                               ")
 
@@ -134,20 +104,26 @@ if st.session_state.current_page == "Introduction":
     st.markdown("                               ")
 
     st.markdown("##### Description of the Key Variables")
+    st.markdown("- Age")
+    st.markdown("This column contains the recorded ages of the insured people in the dataset.")
 
-    variables = {
-        "Age": "This column contains the recorded ages of the insured people in the dataset.",
-        "Sex": "This column contains the recorded sex of the insured people in the dataset.",
-        "BMI": "This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, for each patient in the dataset.",
-        "Children": "This column indicates the number of dependent children the insured patient has.",
-        "Smoker": "This column indicates whether the insured patient is a smoker or a non-smoker.",
-        "Charges": "This column records the total billed amount paid by each patient in the dataset as their insurance premium.",
-        "Region": "This column gives the region of the United States from where the insured person received medical care."
-    }
-    
-    for variable, description in variables.items():
-        st.markdown(f"- **{variable}**: {description}")
+    st.markdown("- Sex")
+    st.markdown("This column contains the recorded sex of the insured people in the dataset.")
 
+    st.markdown("- BMI")
+    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, foe each patient in the dataset. ")
+
+    st.markdown("- Children")
+    st.markdown("This column indicates the number of dependent children the insured person has.")
+
+    st.markdown("- Smoker")
+    st.markdown("This column indicates whether the insured patient is a smoker or a non-smoker.")
+
+    st.markdown("- Charges")
+    st.markdown("This column records the total billed amount paid by each patient in the dataset for insurance. ")
+
+    st.markdown("- Region")
+    st.markdown("This column gives the region of the United States from where the insured person receieved medical care. ")
 
 
 
@@ -203,9 +179,9 @@ if st.session_state.current_page == "Introduction":
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
-    pass
 
-elif st.session_state.current_page == "Visualization":
+
+if app_mode == "Visualization":
 
     st.markdown("## Visualizing the available data")
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map" ])
@@ -299,9 +275,7 @@ elif st.session_state.current_page == "Visualization":
       plt.title('Correlation Matrix of Insurance Dataset')
       tab5.write(fig)
 
-    pass
-
-elif st.session_state.current_page == "Prediction":
+if app_mode == "Prediction":
 
     # Step 1: Define features (X) and the target variable (y)
     X = Insurance_data_encoded.drop('charges', axis=1)  # Features
@@ -325,38 +299,6 @@ elif st.session_state.current_page == "Prediction":
 
     # Step 5: Evaluate the model
     from sklearn.metrics import mean_squared_error, r2_score
-
-    st.subheader('Linear Regression Model')
-
-    intercept = model.intercept_
-    coefficients = model.coef_
-    feature_names = X.columns
-    coefficients_with_features = dict(zip(feature_names, coefficients))
-
-    #st.write("Coefficients of the linear regression model:")
-    #for feature, coeff in coefficients_with_features.items():
-        #st.write(f"{feature}: {np.round(coeff, 2)}")
-
-    #equation = f"y = {np.round(intercept, 2)}"
-    #for feature, coeff in zip(feature_names, coefficients):
-        #equation += f" + ({np.round(coeff, 2)}) * {feature}"
-
-    st.markdown("### Coefficients of the Linear Regression Model")
-
-    # Display coefficients
-    for feature, coeff in coefficients_with_features.items():
-        st.write(f"- **{feature}**: {np.round(coeff, 2)}")
-    
-    # Create LaTeX equation
-    equation = f"y = {np.round(intercept, 2)}"
-    for feature, coeff in zip(feature_names, coefficients):
-        equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
-
-    st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
-
-    Equation_Image = Image.open("Eqn1.jpg")
-    st.image(Equation_Image, width=700)
-    
 
     st.subheader('Results')
 
@@ -403,8 +345,6 @@ elif st.session_state.current_page == "Prediction":
     elif Region == "Southwest":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
-
-    pass
 
 if __name__=='__main__':
     main()
