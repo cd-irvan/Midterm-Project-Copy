@@ -53,9 +53,9 @@ st.set_page_config(page_title="Your App", page_icon="🖼️")
 
 # Define the example images for each section
 EXAMPLES = {
-    "Introduction": "/medical-bills.jpg",
-    "Visualization": "/medical-bills.jpg",
-    "Prediction": "/medical-bills.jpg"
+    "Introduction": "medical-bills.jpg",
+    "Visualization": "medical-bills.jpg",
+    "Prediction": "medical-bills.jpg"
 }
 
 # Set the initial state if it's not already set
