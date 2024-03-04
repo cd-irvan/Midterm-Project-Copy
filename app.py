@@ -187,37 +187,6 @@ if app_mode == 'Introduction':
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
-    st.markdown("Description for the cleaned dataset")
-    
-    st.dataframe(Insurance_data_encoded.describe())
-
-    # Display missing values information
-    st.markdown("### Missing Values")
-    st.markdown("Null or NaN values.")
-    Insurance_null = Insurance_data_encoded.isnull().sum() / len(Insurance_data_encoded) * 100
-    total_miss = Insurance_null.sum().round(2)
-    st.write("Percentage of total missing values:", total_miss)
-    st.write(Insurance_null)
-
-    if total_miss <= 30:
-        st.success("We have a negligible amount of missing values. This helps provide us with more accurate data as the null values will not significantly affect the outcomes of our conclusions.")
-    else:
-        st.warning("Poor data quality due to greater than 30 percent of missing value.")
-        st.markdown("> Theoretically, 25 to 30 percent is the maximum missing values are allowed, there's no hard and fast rule to decide this threshold. It can vary from problem to problem.")
-
-    # Display completeness information
-    st.markdown("### Completeness")
-    st.markdown("The ratio of non-missing values to total records in dataset and how comprehensive the data is.")
-    st.write("Total data length:", len(Insurance_data_encoded))
-    non_missing = Insurance_data_encoded.notnull().sum().round(2)
-    completeness = round(sum(non_missing) / len(Insurance_data_encoded), 2)
-    st.write("Completeness ratio:", completeness)
-    st.write(non_missing)
-
-    if completeness >= 0.80:
-        st.success("We have a completeness ratio greater than 0.85, which is good. It shows that the vast majority of the data is available for us to use and analyze.")
-    else:
-        st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
 
 if app_mode == "Visualization":
