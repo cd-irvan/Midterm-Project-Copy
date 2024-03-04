@@ -330,7 +330,7 @@ if app_mode == "Prediction":
     # Display the equation using LaTeX
     st.latex(r"{}".format(equation_display))
 
-    st.markdown("### Equation of the Linear Regression Model")
+    st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
 
     # Split the equation into multiple lines for better display
     equation_parts = [
