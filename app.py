@@ -145,9 +145,9 @@ if app_mode == 'Introduction':
     # Display description of data
 
     # Display descriptions for all quantitative data
-    st.markdown("### A Statistical Summary")
+    st.markdown("## A Statistical Summary")
 
-    st.markdown("## Description of Data")
+    st.markdown("### Description of Data")
 
     st.markdown("Description for the original dataset")
     
