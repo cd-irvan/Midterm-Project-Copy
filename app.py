@@ -341,6 +341,9 @@ if app_mode == "Prediction":
     
     # Close the container
     st.markdown('</div>', unsafe_allow_html=True)
+
+    Equation_Image = Image.open("Eqn1.png")
+    st.image(Equation_Image, width=700)
     
 
     st.subheader('Results')
