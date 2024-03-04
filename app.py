@@ -179,7 +179,6 @@ if app_mode == 'Introduction':
     st.write("Total data length:", len(Insurance_data))
     completeness = Insurance_data.notnull().all(axis=1).mean()
     st.write("Completeness ratio:", completeness)
-    st.write(non_missing)
 
     if completeness >= 0.80:
         st.success("We have a completeness ratio greater than 0.85, which is good. It shows that the vast majority of the data is available for us to use and analyze.")
