@@ -177,8 +177,7 @@ if app_mode == 'Introduction':
     st.markdown("### Completeness")
     st.markdown("The ratio of non-missing values to total records in dataset and how comprehensive the data is.")
     st.write("Total data length:", len(Insurance_data))
-    non_missing = Insurance_data.notnull().sum().round(2)
-    completeness = round(sum(non_missing) / len(Insurance_data), 2)
+    completeness = Insurance_data.notnull().all(axis=1).mean()
     st.write("Completeness ratio:", completeness)
     st.write(non_missing)
 
