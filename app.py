@@ -175,7 +175,7 @@ if app_mode == 'Introduction':
     st.write("Completeness ratio:", completeness)
 
     if completeness >= 0.80:
-        st.success(f"We have a completeness ratio of {completeness}. This shows that all of the data is available for us to use and analyze.")
+        st.success(f"After an intial cleaning of the dataset, we have a completeness ratio of {completeness}. This shows that all of the data is available for us to use and analyze.")
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
