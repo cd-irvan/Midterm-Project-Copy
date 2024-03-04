@@ -319,14 +319,16 @@ if app_mode == "Prediction":
     equation = f"y = {np.round(intercept, 2)}"
     for feature, coeff in zip(feature_names, coefficients):
         equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
+        
+    # Display the equation
+    st.markdown("The equation of the linear regression model for predicting insurance premium is:")
+
+    # Split the equation into multiple lines for better display
+    equation_parts = [equation[i:i+50] for i in range(0, len(equation), 50)]
+    equation_display = " ".join(equation_parts)
     
     # Display the equation using LaTeX
-    st.markdown("### Equation of the Linear Regression Model")
-    st.latex(equation)
-
-    # Display the equation
-    st.write("The equation of the linear regression model for predicting insurance premium is:")
-    st.latex(equation)
+    st.latex(equation_display)
 
     
 
