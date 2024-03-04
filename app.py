@@ -330,6 +330,22 @@ if app_mode == "Prediction":
     # Display the equation using LaTeX
     st.latex(r"{}".format(equation_display))
 
+    st.markdown("### Equation of the Linear Regression Model")
+
+    # Split the equation into multiple lines for better display
+    equation_parts = [
+        r"y = -11931.22 + (256.98) \times \text{age} + (337.09) \times \text{bmi}",
+        r"+ (425.28) \times \text{children} + (-18.59) \times \text{sex}",
+        r" + (23651.13) \times \text{smoker} + (-370.68) \times \text{region}_{\text{northwest}}",
+        r"+ (-657.86) \times \text{region}_{\text{southeast}} + (-809.8) \times \text{region}_{\text{southwest}}"
+    ]
+    
+    # Join the equation parts with line breaks
+    equation_display = "\n".join(equation_parts)
+    
+    # Display the equation using LaTeX
+    st.latex(equation_display)
+
     
 
     st.subheader('Results')
