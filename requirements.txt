@@ -6,3 +6,4 @@ plotly==5.15.0
 pandas==1.5.3
 joblib
 scikit-learn
+streamlit-image-select
