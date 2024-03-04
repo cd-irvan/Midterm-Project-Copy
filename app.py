@@ -66,7 +66,7 @@ if app_mode == 'Introduction':
     st.markdown("                               ")
 
     st.markdown("##### Project Objective")
-    st.markdown("Using the visualisation and analysis of sourced medical data in the United States, we aim to obtain reasonble estimates of how much medical treatments would cost based on multiple factors.")
+    st.markdown("Using the visualisation and analysis of sourced medical data in the United States, we aim to obtain reasonble estimates of how much medical insurance premiums would cost based on multiple factors specific to a given patient.")
 
     st.markdown("                               ")
     st.markdown("##### An Introduction")
@@ -75,20 +75,31 @@ if app_mode == 'Introduction':
 
     st.markdown("                               ")
 
-    st.markdown(" Factors contributing to the cost of medical care include but are not limited to, the type of treatment received, the healthcare provider's location, the patient's insurance coverage, and any additional services or procedures required.")
+    st.markdown(" Medical insurance premiums represent the amount individuals or groups pay to an insurance company for healthcare coverage. These premiums serve as a form of financial protection, providing access to medical services and helping mitigate the high costs associated with healthcare. ")
 
     st.markdown("                               ")
 
-    st.markdown(" The lack of transparency in healthcare pricing often leaves patients bewildered, making it challenging to anticipate and budget for medical expenses accurately.")
+    st.markdown(" Factors such as age, gender, location, and marital status play pivotal roles in determining insurance premiums, with older individuals often facing higher costs due to increased healthcare risks.")
 
     st.markdown("                               ")
 
-    st.markdown(" Medical billing errors are not uncommon, with studies suggesting they affect up to 80% of hospital bills, potentially leading to inflated costs for patients.")
+    st.markdown(" Pre-existing conditions, overall health, and family medical history directly impact insurance expenses, with those in poorer health generally facing higher premiums. Additionally, your lifestyle choices can prove to be the differnece. Habits like smoking, alcohol consumption, and exercise frequency affect insurance costs, rewarding healthier lifestyles with potentially lower premiums.")
 
     st.markdown("                               ")
 
-    st.markdown(" Uninsured individuals are particularly vulnerable to exorbitant medical bills, often facing financial hardship or even bankruptcy due to the inability to cover healthcare costs.")
+    st.markdown(" The extent of coverage desired, including deductibles, copayments, and specific treatments covered, directly influences insurance premiums. Different insurance companies offer diverse pricing structures and policies, leading to variations in premiums for similar coverage.")
 
+    st.markdown("                               ")
+
+    st.markdown(" Fluctuations in the economy, regulatory changes, and market competition can influence insurance premiums over time, necessitating awareness of market trends. Insurers also assess risk when determining premiums for a potential client, with a larger risk pool potentially resulting in lower costs for individuals.")
+
+    st.markdown("                               ")
+
+    st.markdown(" Most importantly, the accessibility and quality of healthcare services in a particular area can influence insurance costs, with areas offering more comprehensive care often associated with higher premiums.")
+
+    st.markdown("                               ")
+
+    st.markdown(" Tailoring insurance policies to individual needs and preferences can impact premiums, allowing for optimization based on specific requirements. Regularly reviewing insurance coverage and comparing options ensures individuals are receiving the best value for their premiums and adjusting to changes in their circumstances.")
     num = st.number_input('No. of Rows', 5, 10)
 
     head = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
