@@ -322,7 +322,7 @@ if app_mode == "Prediction":
 
     st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
 
-    Equation_Image = Image.open("Eqn1.png")
+    Equation_Image = Image.open("Eqn1.jpg")
     st.image(Equation_Image, width=700)
     
 
