@@ -79,23 +79,23 @@ if app_mode == 'Introduction':
 
     st.markdown("                               ")
 
-    st.markdown(" Factors such as age, gender, location, and marital status play pivotal roles in determining insurance premiums, with older individuals often facing higher costs due to increased healthcare risks.")
+    st.markdown(" Medical insurance premiums are influenced by various qualitative factors such as age, lifestyle choices, pre-existing conditions, and even geographic location. For instance, individuals with healthier lifestyles and no pre-existing conditions may qualify for lower premiums, while those residing in areas with higher healthcare costs may face increased insurance rates.")
 
     st.markdown("                               ")
 
-    st.markdown(" Pre-existing conditions, overall health, and family medical history directly impact insurance expenses, with those in poorer health generally facing higher premiums. Additionally, your lifestyle choices can prove to be the differnece. Habits like smoking, alcohol consumption, and exercise frequency affect insurance costs, rewarding healthier lifestyles with potentially lower premiums.")
+    st.markdown("Advancements in medical technology and treatment options can affect insurance premiums. While innovative treatments may improve patient outcomes, they can also come with higher costs, leading to adjustments in insurance pricing to account for these advancements.")
 
     st.markdown("                               ")
 
-    st.markdown(" The extent of coverage desired, including deductibles, copayments, and specific treatments covered, directly influences insurance premiums. Different insurance companies offer diverse pricing structures and policies, leading to variations in premiums for similar coverage.")
+    st.markdown(" The extent of coverage desired, including deductibles, copayments, and coverage limits, directly affects insurance premiums. Comprehensive coverage with lower out-of-pocket expenses typically entails higher premiums, while higher deductibles and copayments can reduce monthly costs.")
 
     st.markdown("                               ")
 
-    st.markdown(" Fluctuations in the economy, regulatory changes, and market competition can influence insurance premiums over time, necessitating awareness of market trends. Insurers also assess risk when determining premiums for a potential client, with a larger risk pool potentially resulting in lower costs for individuals.")
+    st.markdown(" Government regulations and healthcare policies also influence insurance premiums. Changes in legislation, such as the Affordable Care Act in the United States, can impact insurance costs by mandating coverage requirements, introducing subsidies, or altering the competitive landscape of the insurance market. Insurers also assess risk when determining premiums for a potential client, with a larger risk pool potentially resulting in lower costs for individuals.")
 
     st.markdown("                               ")
 
-    st.markdown(" Most importantly, the accessibility and quality of healthcare services in a particular area can influence insurance costs, with areas offering more comprehensive care often associated with higher premiums.")
+    st.markdown(" Most importantly, Medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
 
     st.markdown("                               ")
 
