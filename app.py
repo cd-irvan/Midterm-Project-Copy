@@ -145,15 +145,9 @@ if app_mode == 'Introduction':
     # Display description of data
 
     # Display descriptions for all quantitative data
-    st.markdown("Descriptions for all quantitative data **(rank and streams)** by:")
-    st.markdown("Count")
-    st.markdown("Mean")
-    st.markdown("Standard Deviation")
-    st.markdown("Minimum")
-    st.markdown("Quartiles")
-    st.markdown("Maximum")
+    st.markdown("### A Statistical Summary")
 
-    st.markdown("### Description of Data")
+    st.markdown("## Description of Data")
 
     st.markdown("Description for the original dataset")
     
@@ -181,7 +175,7 @@ if app_mode == 'Introduction':
     st.write("Completeness ratio:", completeness)
 
     if completeness >= 0.80:
-        st.success("We have a completeness ratio greater than 0.85, which is good. It shows that the vast majority of the data is available for us to use and analyze.")
+        st.success("We have a completeness ratio of", completeness. "This shows that all of the data is available for us to use and analyze.")
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
