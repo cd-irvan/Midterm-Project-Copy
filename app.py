@@ -300,6 +300,18 @@ if app_mode == "Prediction":
     # Step 5: Evaluate the model
     from sklearn.metrics import mean_squared_error, r2_score
 
+    st.subheader('Linear Regression Model')
+
+    coefficients = model.coef_
+    feature_names = X.columns
+    coefficients_with_features = dict(zip(feature_names, coefficients))
+
+    st.write("Coefficients of the linear regression model:")
+    for feature, coeff in coefficients_with_features.items():
+        st.write(f"{feature}: {np.round(coeff, 2)}")
+
+    
+
     st.subheader('Results')
 
     st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, y_pred ),2))
