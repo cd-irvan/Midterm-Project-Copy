@@ -353,7 +353,7 @@ if app_mode == "Prediction":
 
     def cost_calculator(cost_caluclator):
         cost = model.predict(cost_data)
-        st.write(f'Predicted final insurance bill: {cost}')
+        st.write(f'Predicted final insurance bill: {cost[0]}')
 
     if Region == "Northeast":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 0]]
