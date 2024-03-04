@@ -14,7 +14,7 @@ import altair as alt
 
 def main():
     def _max_width_():
-        max_width_str = f"max-width: 1000px;"
+        max_width_str = f"max-width: 10000px;"
         st.markdown(
             f"""
         <style>
