@@ -100,6 +100,33 @@ if app_mode == 'Introduction':
     st.markdown("                               ")
 
     st.markdown(" Tailoring insurance policies to individual needs and preferences can impact premiums, allowing for optimization based on specific requirements. Regularly reviewing insurance coverage and comparing options ensures individuals are receiving the best value for their premiums and adjusting to changes in their circumstances.")
+
+    st.markdown("                               ")
+
+    st.markdown("##### Description of the Key Variables")
+    st.markdown("- Age")
+    st.markdown("This column contains the recorded ages of the insured people in the dataset.")
+
+    st.markdown("- Sex")
+    st.markdown("This column contains the recorded sex of the insured people in the dataset.")
+
+    st.markdown("- BMI")
+    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, foe each patient in the dataset. ")
+
+    st.markdown("- Children")
+    st.markdown("This column indicates the number of dependent children the insured person has.")
+
+    st.markdown("- Smoker")
+    st.markdown("This column indicates whether the insured patient is a smoker or a non-smoker.")
+
+    st.markdown("- Charges")
+    st.markdown("This column records the total billed amount paid by each patient in the dataset for insurance. ")
+
+    st.markdown("- Region")
+    st.markdown("This column gives the region of the United States from where the insured person receieved medical care. ")
+
+
+
     num = st.number_input('No. of Rows', 5, 10)
 
     head = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
@@ -192,27 +219,6 @@ if app_mode == 'Introduction':
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
-    st.markdown("##### Description of the Key Variables")
-    st.markdown("- Age")
-    st.markdown("This column contains the recorded ages of the insured people in the dataset.")
-
-    st.markdown("- Sex")
-    st.markdown("This column contains the recorded sex of the insured people in the dataset.")
-
-    st.markdown("- BMI")
-    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, foe each patient in the dataset. ")
-
-    st.markdown("- Children")
-    st.markdown("This column indicates the number of dependent children the insured person has.")
-
-    st.markdown("- Smoker")
-    st.markdown("This column indicates whether the insured patient is a smoker or a non-smoker.")
-
-    st.markdown("- Charges")
-    st.markdown("This column records the total billed amount paid by each patient in the dataset for insurance. ")
-
-    st.markdown("- Region")
-    st.markdown("This column gives the region of the United States from where the insured person receieved medical care. ")
 
 if app_mode == "Visualization":
 
