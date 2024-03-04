@@ -203,7 +203,7 @@ if st.session_state['current_section'] == "Introduction":
     
 elif st.session_state['current_section'] == "Visualization":
     st.header("Visualization")
-        st.markdown("## Visualizing the available data")
+    st.markdown("## Visualizing the available data")
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map" ])
 
     width1 = st.sidebar.slider("Choose the width of the plot", 1, 25, 10)
