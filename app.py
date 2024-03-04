@@ -11,6 +11,8 @@ import plotly.express as px
 import random
 from PIL import Image
 import altair as alt
+import streamlit as st
+from streamlit_image_select import image_select
 
 def main():
     def _max_width_():
@@ -45,15 +47,40 @@ Insurance_data = pd.read_csv("insurance.csv")
 
 Insurance_data_encoded = pd.get_dummies(Insurance_data, columns=['sex', 'smoker', 'region'], drop_first=True)
 
-st.sidebar.header("Dashboard")
-st.sidebar.markdown("---")
-#app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
-pages = ['Introduction', 'Visualization', 'Prediction']
-app_mode = st.sidebar.radio('Select Page', pages)
-list_variables = Insurance_data.columns
 
-if app_mode == 'Introduction':
+# Set the page configuration
+st.set_page_config(page_title="Your App", page_icon="🖼️")
 
+# Define the example images for each section
+EXAMPLES = {
+    "Introduction": "path/to/medical-bills.jpg",
+    "Visualization": "path/to/medical-bills.jpg",
+    "Prediction": "path/to/medical-bills.jpg"
+}
+
+# Set the initial state if it's not already set
+if not st.session_state:
+    st.session_state['current_section'] = "Introduction"
+
+# Create the image selection
+example_image_fp = [EXAMPLES[example] for example in EXAMPLES]
+example_names = list(EXAMPLES.keys())
+
+index_selected = image_select(
+    "",
+    images=example_image_fp,
+    captions=example_names,
+    index=example_names.index(st.session_state['current_section']),
+    return_value="index"
+)
+
+# Update the current section based on selection
+st.session_state['current_section'] = example_names[index_selected]
+
+# Display the content based on the selected section
+if st.session_state['current_section'] == "Introduction":
+    st.header("Introduction")
+    
     Cover_Image = Image.open("medical-bills.jpg")
 
 
@@ -173,9 +200,10 @@ if app_mode == 'Introduction':
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
 
-if app_mode == "Visualization":
-
-    st.markdown("## Visualizing the available data")
+    
+elif st.session_state['current_section'] == "Visualization":
+    st.header("Visualization")
+        st.markdown("## Visualizing the available data")
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map" ])
 
     width1 = st.sidebar.slider("Choose the width of the plot", 1, 25, 10)
@@ -267,7 +295,10 @@ if app_mode == "Visualization":
       plt.title('Correlation Matrix of Insurance Dataset')
       tab5.write(fig)
 
-if app_mode == "Prediction":
+    # Add your visualization content here
+elif st.session_state['current_section'] == "Prediction":
+    st.header("Prediction")
+    # Add your prediction content here
 
     # Step 1: Define features (X) and the target variable (y)
     X = Insurance_data_encoded.drop('charges', axis=1)  # Features
@@ -370,6 +401,8 @@ if app_mode == "Prediction":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
 
+
+
 if __name__=='__main__':
     main()
 
@@ -426,3 +459,8 @@ def layout(*args):
             body(arg)
 
     st.markdown(str(foot), unsafe_allow_html=True)
+
+
+
+
+
