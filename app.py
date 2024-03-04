@@ -323,7 +323,7 @@ if app_mode == "Prediction":
     st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
 
     # Define a container with fixed width
-    st.markdown('<div style="width: 600px">', unsafe_allow_html=True)
+    st.markdown('<div style="width: 1000px">', unsafe_allow_html=True)
 
     # Split the equation into multiple lines for better display
     equation_parts = [
