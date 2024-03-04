@@ -302,6 +302,7 @@ if app_mode == "Prediction":
 
     st.subheader('Linear Regression Model')
 
+    intercept = model.intercept_
     coefficients = model.coef_
     feature_names = X.columns
     coefficients_with_features = dict(zip(feature_names, coefficients))
@@ -309,6 +310,14 @@ if app_mode == "Prediction":
     st.write("Coefficients of the linear regression model:")
     for feature, coeff in coefficients_with_features.items():
         st.write(f"{feature}: {np.round(coeff, 2)}")
+
+    equation = f"y = {np.round(intercept, 2)}"
+    for feature, coeff in zip(feature_names, coefficients):
+        equation += f" + ({np.round(coeff, 2)}) * {feature}"
+
+    # Display the equation
+    st.write("The equation of the linear regression model for predicting insurance premium is:")
+    st.latex(equation)
 
     
 
