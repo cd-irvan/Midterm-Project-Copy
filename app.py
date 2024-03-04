@@ -322,6 +322,9 @@ if app_mode == "Prediction":
 
     st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
 
+    # Define a container with fixed width
+    st.markdown('<div style="width: 600px">', unsafe_allow_html=True)
+
     # Split the equation into multiple lines for better display
     equation_parts = [
         r"y = -11931.22 + (256.98) \times \text{age} + (337.09) \times \text{bmi}",
@@ -335,7 +338,9 @@ if app_mode == "Prediction":
     
     # Display the equation using LaTeX
     st.latex(equation_display)
-
+    
+    # Close the container
+    st.markdown('</div>', unsafe_allow_html=True)
     
 
     st.subheader('Results')
