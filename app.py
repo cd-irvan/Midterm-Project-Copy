@@ -95,7 +95,7 @@ if app_mode == 'Introduction':
 
     st.markdown("                               ")
 
-    st.markdown(" Most importantly, Medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
+    st.markdown(" Most importantly, medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
 
     st.markdown("                               ")
 
