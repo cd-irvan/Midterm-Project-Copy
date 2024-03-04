@@ -301,13 +301,28 @@ if app_mode == "Prediction":
     feature_names = X.columns
     coefficients_with_features = dict(zip(feature_names, coefficients))
 
-    st.write("Coefficients of the linear regression model:")
-    for feature, coeff in coefficients_with_features.items():
-        st.write(f"{feature}: {np.round(coeff, 2)}")
+    #st.write("Coefficients of the linear regression model:")
+    #for feature, coeff in coefficients_with_features.items():
+        #st.write(f"{feature}: {np.round(coeff, 2)}")
 
+    #equation = f"y = {np.round(intercept, 2)}"
+    #for feature, coeff in zip(feature_names, coefficients):
+        #equation += f" + ({np.round(coeff, 2)}) * {feature}"
+
+    st.markdown("### Coefficients of the Linear Regression Model")
+
+    # Display coefficients
+    for feature, coeff in coefficients_with_features.items():
+        st.write(f"- **{feature}**: {np.round(coeff, 2)}")
+    
+    # Create LaTeX equation
     equation = f"y = {np.round(intercept, 2)}"
     for feature, coeff in zip(feature_names, coefficients):
-        equation += f" + ({np.round(coeff, 2)}) * {feature}"
+        equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
+    
+    # Display the equation using LaTeX
+    st.markdown("### Equation of the Linear Regression Model")
+    st.latex(equation)
 
     # Display the equation
     st.write("The equation of the linear regression model for predicting insurance premium is:")
