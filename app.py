@@ -42,18 +42,48 @@ def main():
     # hide the footer
     hide_header_footer()
 
+# Dictionary of pages and their corresponding images
+pages_images = {
+    "Introduction": "/medical-bills.jpg",  # Replace with actual path or URL
+    "Visualization": "/medical-bills.jpg",  # Replace with actual path or URL
+    "Prediction": "/medical-bills.jpg"  # Replace with actual path or URL
+}
+
+
+# A function to display a clickable image
+def image_select(image_path, page_name, key):
+    with st.container():
+        if st.button("", key=key):
+            st.session_state.current_page = page_name
+        st.image(image_path, width=100, caption=page_name)
+
+
+# Initialize the session state for current page if not already set
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = "Introduction"
+
+
+
 Insurance_data = pd.read_csv("insurance.csv")
 
 Insurance_data_encoded = pd.get_dummies(Insurance_data, columns=['sex', 'smoker', 'region'], drop_first=True)
 
 st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
-#app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
-pages = ['Introduction', 'Visualization', 'Prediction']
-app_mode = st.sidebar.radio('Select Page', pages)
+# #app_mode = st.sidebar.selectbox('Select Page',['Introduction','Visualization','Prediction'])
+# pages = ['Introduction', 'Visualization', 'Prediction']
+# app_mode = st.sidebar.radio('Select Page', pages)
 list_variables = Insurance_data.columns
 
-if app_mode == 'Introduction':
+
+# Display images in a horizontal layout
+cols = st.columns(len(pages_images))
+for idx, (page_name, image_path) in enumerate(pages_images.items()):
+    with cols[idx]:
+        image_select(image_path, page_name, f"button_{idx}")
+
+
+if st.session_state.current_page == "Introduction":
 
     Cover_Image = Image.open("medical-bills.jpg")
 
@@ -173,9 +203,9 @@ if app_mode == 'Introduction':
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
 
+    pass
 
-
-if app_mode == "Visualization":
+elif st.session_state.current_page == "Visualization":
 
     st.markdown("## Visualizing the available data")
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map" ])
@@ -269,7 +299,9 @@ if app_mode == "Visualization":
       plt.title('Correlation Matrix of Insurance Dataset')
       tab5.write(fig)
 
-if app_mode == "Prediction":
+    pass
+
+elif st.session_state.current_page == "Prediction":
 
     # Step 1: Define features (X) and the target variable (y)
     X = Insurance_data_encoded.drop('charges', axis=1)  # Features
@@ -371,6 +403,8 @@ if app_mode == "Prediction":
     elif Region == "Southwest":
         cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
         cost_calculator(cost_data)
+
+    pass
 
 if __name__=='__main__':
     main()
