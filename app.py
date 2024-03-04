@@ -14,7 +14,7 @@ import altair as alt
 
 def main():
     def _max_width_():
-        max_width_str = f"max-width: 10000px;"
+        max_width_str = f"max-width: 1000px;"
         st.markdown(
             f"""
         <style>
@@ -321,26 +321,6 @@ if app_mode == "Prediction":
         equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
 
     st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
-
-    # Define a container with fixed width
-    st.markdown('<div style="width: 10000px">', unsafe_allow_html=True)
-
-    # Split the equation into multiple lines for better display
-    equation_parts = [
-        r"y = -11931.22 + (256.98) \times \text{age} + (337.09) \times \text{bmi}",
-        r"+ (425.28) \times \text{children} + (-18.59) \times \text{sex}",
-        r" + (23651.13) \times \text{smoker} + (-370.68) \times \text{region}_{\text{northwest}}",
-        r"+ (-657.86) \times \text{region}_{\text{southeast}} + (-809.8) \times \text{region}_{\text{southwest}}"
-    ]
-    
-    # Join the equation parts with line breaks
-    equation_display = "\n".join(equation_parts)
-    
-    # Display the equation using LaTeX
-    st.latex(equation_display)
-    
-    # Close the container
-    st.markdown('</div>', unsafe_allow_html=True)
 
     Equation_Image = Image.open("Eqn1.png")
     st.image(Equation_Image, width=700)
