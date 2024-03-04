@@ -26,7 +26,6 @@ def main():
             unsafe_allow_html=True,
         )
 
-
     # Hide the Streamlit header and footer
     def hide_header_footer():
         hide_streamlit_style = """
@@ -95,7 +94,7 @@ if app_mode == 'Introduction':
 
     st.markdown("                               ")
 
-    st.markdown(" Most importantly, Medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
+    st.markdown(" Most importantly, medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
 
     st.markdown("                               ")
 
@@ -104,26 +103,20 @@ if app_mode == 'Introduction':
     st.markdown("                               ")
 
     st.markdown("##### Description of the Key Variables")
-    st.markdown("- Age")
-    st.markdown("This column contains the recorded ages of the insured people in the dataset.")
 
-    st.markdown("- Sex")
-    st.markdown("This column contains the recorded sex of the insured people in the dataset.")
+    variables = {
+        "Age": "This column contains the recorded ages of the insured people in the dataset.",
+        "Sex": "This column contains the recorded sex of the insured people in the dataset.",
+        "BMI": "This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, for each patient in the dataset.",
+        "Children": "This column indicates the number of dependent children the insured patient has.",
+        "Smoker": "This column indicates whether the insured patient is a smoker or a non-smoker.",
+        "Charges": "This column records the total billed amount paid by each patient in the dataset as their insurance premium.",
+        "Region": "This column gives the region of the United States from where the insured person received medical care."
+    }
+    
+    for variable, description in variables.items():
+        st.markdown(f"- **{variable}**: {description}")
 
-    st.markdown("- BMI")
-    st.markdown("This column gives the recorded Body Mass Index (BMI), calculated by dividing the weight of the patient in kilograms by the square of the height of the insured person in metres, foe each patient in the dataset. ")
-
-    st.markdown("- Children")
-    st.markdown("This column indicates the number of dependent children the insured person has.")
-
-    st.markdown("- Smoker")
-    st.markdown("This column indicates whether the insured patient is a smoker or a non-smoker.")
-
-    st.markdown("- Charges")
-    st.markdown("This column records the total billed amount paid by each patient in the dataset for insurance. ")
-
-    st.markdown("- Region")
-    st.markdown("This column gives the region of the United States from where the insured person receieved medical care. ")
 
 
 
@@ -178,7 +171,6 @@ if app_mode == 'Introduction':
         st.success(f"After an intial cleaning of the dataset, we have a completeness ratio of {completeness}. This shows that all of the data is available for us to use and analyze.")
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
-
 
 
 if app_mode == "Visualization":
@@ -299,6 +291,38 @@ if app_mode == "Prediction":
 
     # Step 5: Evaluate the model
     from sklearn.metrics import mean_squared_error, r2_score
+
+    st.subheader('Linear Regression Model')
+
+    intercept = model.intercept_
+    coefficients = model.coef_
+    feature_names = X.columns
+    coefficients_with_features = dict(zip(feature_names, coefficients))
+
+    #st.write("Coefficients of the linear regression model:")
+    #for feature, coeff in coefficients_with_features.items():
+        #st.write(f"{feature}: {np.round(coeff, 2)}")
+
+    #equation = f"y = {np.round(intercept, 2)}"
+    #for feature, coeff in zip(feature_names, coefficients):
+        #equation += f" + ({np.round(coeff, 2)}) * {feature}"
+
+    st.markdown("### Coefficients of the Linear Regression Model")
+
+    # Display coefficients
+    for feature, coeff in coefficients_with_features.items():
+        st.write(f"- **{feature}**: {np.round(coeff, 2)}")
+    
+    # Create LaTeX equation
+    equation = f"y = {np.round(intercept, 2)}"
+    for feature, coeff in zip(feature_names, coefficients):
+        equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
+
+    st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
+
+    Equation_Image = Image.open("Eqn1.jpg")
+    st.image(Equation_Image, width=700)
+    
 
     st.subheader('Results')
 
