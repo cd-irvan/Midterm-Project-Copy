@@ -328,7 +328,7 @@ if app_mode == "Prediction":
     equation_display = " ".join(equation_parts)
     
     # Display the equation using LaTeX
-    st.latex(equation_display)
+    st.latex(r"{}".format(equation_display))
 
     
 
