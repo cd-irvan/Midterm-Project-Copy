@@ -53,7 +53,7 @@ st.set_page_config(page_title="Your App", page_icon="🖼️")
 
 # Define the example images for each section
 EXAMPLES = {
-    "Introduction": "medical-bills.jpg",
+    "Introduction": "health-insurance.jpg",
     "Visualization": "visualisation.jpg",
     "Prediction": "linear_regression.jpg"
 }
