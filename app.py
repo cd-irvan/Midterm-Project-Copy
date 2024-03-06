@@ -386,7 +386,7 @@ elif st.session_state['current_section'] == "Prediction":
     Smoker = 1 if Smoker == "Yes" else 0
 
     def cost_calculator(cost_caluclator):
-        cost = model.predict(cost_data)
+        cost = User_model.predict(cost_data)
         st.write(f'Predicted final insurance bill: {cost[0]}')
 
     if Region == "Northeast":
