@@ -315,6 +315,8 @@ elif st.session_state['current_section'] == "Prediction":
     
     # Step 4: Predict the target variable for the testing set
     y_pred = model.predict(X_test)
+
+    comparison_df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
     
     # Step 5: Evaluate the model
     st.subheader('Linear Regression Model')
