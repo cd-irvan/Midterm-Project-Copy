@@ -349,9 +349,10 @@ elif st.session_state['current_section'] == "Prediction":
     Equation_Image = Image.open("Eqn1.jpg")
     st.image(Equation_Image, width=700)
 
+    User_Insurance_data_encoded = Insurance_data_encoded
     # Step 1: Define features (X) and the target variable (y)
-    User_X = Insurance_data_encoded.drop('charges', axis=1)  # Features
-    User_y = Insurance_data_encoded['charges']  # Target variable
+    User_X = User_Insurance_data_encoded.drop('charges', axis=1)  # Features
+    User_y = User_Insurance_data_encoded['charges']  # Target variable
 
     # Step 2: Split the data into training and testing sets
     from sklearn.model_selection import train_test_split
@@ -370,7 +371,7 @@ elif st.session_state['current_section'] == "Prediction":
     User_comparison_df = pd.DataFrame({'Actual': User_y_test, 'Predicted': User_y_pred})
 
     BMI = 0
-    st.write("Enter your details below to estimate the cost of your final insurance bill : ")
+    st.markdown("### Fill in your details below to estimate the cost of your final insurance bill : ")
     Age = st.number_input("Enter your age:", min_value=18, max_value=110, value=18, step=1)
     Sex = st.selectbox("Select your sex:", options=["Male", "Female"])
     Height = st.number_input("Enter your height in metres: ")
