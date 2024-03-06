@@ -388,8 +388,8 @@ elif st.session_state['current_section'] == "Prediction":
     input_data = np.array([user_input[column] for column in selected_columns if column in user_input]).reshape(1, -1)
     
     # Debugging: Print input data shape and user input
-    print("Input data shape:", input_data.shape)
-    print("User input:", user_input)
+    st.write("Input data shape:", input_data.shape)
+    st.write("User input:", user_input)
     
     # Predict insurance premium
     insurance_premium = model.predict(input_data)[0]
