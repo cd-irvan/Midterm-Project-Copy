@@ -145,16 +145,11 @@ if st.session_state['current_section'] == "Introduction":
         st.markdown(f"- **{variable}**: {description}")
 
 
-
+    st.markdown("### A look at the Data")
 
     num = st.number_input('No. of Rows', 5, 10)
 
     head = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
-
-    if head == 'Head':
-      st.dataframe(Insurance_data.head(num))
-    else:
-      st.dataframe(Insurance_data.tail(num))
 
     # Display dataset based on selection
     if head == 'Head':
@@ -198,6 +193,22 @@ if st.session_state['current_section'] == "Introduction":
         st.success(f"After an intial cleaning of the dataset, we have a completeness ratio of {completeness}. This shows that all of the data is available for us to use and analyze.")
     else:
         st.warning("Poor data quality due to low completeness ratio (less than 0.85).")
+
+    st.markdown("### The encoded dataframe")
+    
+    num_encoded = st.number_input('No. of Rows', 5, 10)
+
+    head_encoded = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
+
+    if head_encoded == 'Head':
+      st.dataframe(Insurance_data_encoded.head(num))
+    else:
+      st.dataframe(Insurance_data_encoded.tail(num))
+
+    if head_encoded == 'Head':
+      st.dataframe(Insurance_data_encoded.head(num))
+    else:
+      st.dataframe(Insurance_data_encoded.tail(num))
 
 
     
