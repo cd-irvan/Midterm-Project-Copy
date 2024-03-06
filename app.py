@@ -364,9 +364,9 @@ elif st.session_state['current_section'] == "Prediction":
 
     st.subheader('Results')
 
-    st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, y_pred ),2))
-    st.write("2) The Mean Square Error of the model is: ", np.round(mt.mean_squared_error(y_test, y_pred),2))
-    st.write("3) The R-Square score of the model is " , np.round(mt.r2_score(y_test, y_pred),2))
+    st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred ),2))  # Use mean_absolute_error directly
+    st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred),2))
+    st.write("3) The R-Square score of the model is " , np.round(r2_score(y_test, y_pred),2))
 
     st.write(" ")
     st.write("Plotting the actual final insurance costs versus the final insurance costs predicted by the model")
