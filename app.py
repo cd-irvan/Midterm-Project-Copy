@@ -358,13 +358,14 @@ elif st.session_state['current_section'] == "Prediction":
         elif column == "Sex":
             user_input[column] = st.selectbox("Select your sex:", options=["Male", "Female"])
         elif column == "BMI":
-            Height = st.number_input("Enter your height in metres:", value=20.0, step=0.1)
-            Weight = st.number_input("Enter your weight in kilograms:", value=20.0, step=0.1)
-            if Height != 0:
-               BMI = Weight/(Height ** 2)
-               user_input[column] = BMI
-            else:
-               user_input[column] = 0  # Set BMI to 0 if height is 0
+           Height = st.number_input("Enter your height in metres:", value=20.0, step=0.1)
+           Weight = st.number_input("Enter your weight in kilograms:", value=20.0, step=0.1)
+           if Height > 0:
+             BMI = Weight / (Height ** 2)
+             user_input[column] = BMI
+           else:
+             st.warning("Please enter a valid height.")
+             st.stop()  # Stop execution if height is not valid
         elif column == "Children":
             user_input[column] = st.number_input("Number of Dependents:", min_value=0, max_value=100, value=0, step=1)
         elif column == "Smoker":
