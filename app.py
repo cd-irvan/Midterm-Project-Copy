@@ -210,7 +210,7 @@ if st.session_state['current_section'] == "Introduction":
 elif st.session_state['current_section'] == "Visualization":
     st.header("Visualization")
     st.markdown("## Visualizing the available data")
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map" ])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Average Insurance Charges by Region","Average BMI by Region", "Average Charges by Age", "Pairplot", "A Correlation Map", "A Report" ])
 
     width1 = st.sidebar.slider("Choose the width of the plot", 1, 25, 10)
 
@@ -300,6 +300,23 @@ elif st.session_state['current_section'] == "Visualization":
       sns.heatmap(Insurance_data_encoded.corr(), annot=True, fmt=".2f", cmap='coolwarm', square=True, linewidths=.5)
       plt.title('Correlation Matrix of Insurance Dataset')
       tab5.write(fig)
+
+    with tab6:
+
+      import sweetviz as sv
+      report = sv.analyze("Insurance_data.csv")
+      report.show_html("report.html")
+    
+      #Display the Sweetviz report
+      if st.button("Generate Report"):
+        import streamlit.components.v1 as components
+        st.title("Sweetviz Report of the Data")
+        report_path = "report.html"
+        HtmlFile = open(report_path, "r", encoding="utf-8")
+        source_code = HtmlFile.read()
+        components.html(source_code, height = 1000, width = 1000)
+
+    
 
     # Add your visualization content here
 elif st.session_state['current_section'] == "Prediction":
