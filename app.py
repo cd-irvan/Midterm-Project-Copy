@@ -386,8 +386,12 @@ elif st.session_state['current_section'] == "Prediction":
     # Convert user input to array for prediction
     input_data = np.array([user_input[column] for column in selected_columns if column in user_input]).reshape(1, -1)
     
+    # Debugging: Print input data shape and user input
+    print("Input data shape:", input_data.shape)
+    print("User input:", user_input)
+    
     # Predict insurance premium
-    insurance_premium = model.predict(input_data)
+    insurance_premium = model.predict(input_data)[0]
     st.write(f'Predicted final insurance bill: {insurance_premium}')
 
 
