@@ -7,4 +7,4 @@ pandas==1.5.3
 joblib
 scikit-learn
 streamlit-image-select
-sweetviz
+sweetviz==2.3.0
