@@ -198,7 +198,7 @@ if st.session_state['current_section'] == "Introduction":
     
     num_encoded = st.number_input('No. of Rows', 5, 10, key="num_encoded")
 
-    head_encoded = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'), key="num_encoded")
+    head_encoded = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'), key="head_encoded")
 
     if head_encoded == 'Head':
       st.dataframe(Insurance_data_encoded.head(num_encoded))
