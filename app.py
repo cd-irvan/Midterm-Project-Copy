@@ -363,6 +363,8 @@ elif st.session_state['current_section'] == "Prediction":
             if Height != 0:
                BMI = Weight/(Height ** 2)
                user_input[column] = BMI
+            else:
+               user_input[column] = 0  # Set BMI to 0 if height is 0
         elif column == "Children":
             user_input[column] = st.number_input("Number of Dependents:", min_value=0, max_value=100, value=0, step=1)
         elif column == "Smoker":
