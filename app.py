@@ -92,6 +92,7 @@ if st.session_state['current_section'] == "Introduction":
     st.markdown("                               ")
 
     st.markdown("### Project Objective")
+    
     st.markdown("Using the visualisation and analysis of sourced medical data in the United States, we aim to obtain reasonble estimates of how much medical insurance premiums would cost based on multiple factors specific to a given patient.")
 
     st.markdown("                               ")
