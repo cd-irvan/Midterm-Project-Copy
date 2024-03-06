@@ -360,8 +360,9 @@ elif st.session_state['current_section'] == "Prediction":
 
     Equation_Image = Image.open("Eqn1.jpg")
     st.image(Equation_Image, width=700)
-    
 
+    from sklearn.metrics import mean_squared_error, r2_score
+    
     st.subheader('Results')
 
     st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred ),2))  # Use mean_absolute_error directly
