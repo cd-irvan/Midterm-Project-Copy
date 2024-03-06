@@ -351,39 +351,39 @@ elif st.session_state['current_section'] == "Prediction":
 
     BMI = 0
     st.write("Enter your details below to estimate the cost of your final insurance bill : ")
-    Age = st.number_input("Enter your age:", min_value=18, max_value=110, value=18, step=1)
-    Sex = st.selectbox("Select your sex:", options=["Male", "Female"])
-    Height = st.number_input("Enter your height in metres: ")
-    Weight = st.number_input("Enter your weight in kilograms: ")
-    if(Height != 0):
-       BMI = Weight/(Height ** 2)
-    Child = st.number_input("Number of Dependents:",min_value=0, max_value=100, value=0, step=1)
-    Smoker = st.selectbox("Are you a smoker?", options=["Yes", "No"])
-    Region = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
+    user_input = {}
+    for column in selected_columns:
+        if column == "Age":
+            user_input[column] = st.number_input("Enter your age:", min_value=18, max_value=110, value=18, step=1)
+        elif column == "Sex":
+            user_input[column] = st.selectbox("Select your sex:", options=["Male", "Female"])
+        elif column == "BMI":
+            Height = st.number_input("Enter your height in metres:", value=20.0, step=0.1)
+            Weight = st.number_input("Enter your weight in kilograms:", value=20.0, step=0.1)
+            if(Height != 0):
+               BMI = Weight/(Height ** 2)
+               user_input[column] = BMI
+        elif column == "Children":
+            user_input[column] = st.number_input("Number of Dependents:", min_value=0, max_value=100, value=0, step=1)
+        elif column == "Smoker":
+            user_input[column] = st.selectbox("Are you a smoker?", options=["Yes", "No"])
+        elif column == "Region":
+            user_input[column] = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
 
-    Sex = 1 if Sex == "Male" else 0
-    Smoker = 1 if Smoker == "Yes" else 0
-
+    # Convert categorical variables to numeric
+    user_input["Sex"] = 1 if user_input["Sex"] == "Male" else 0
+    user_input["Smoker"] = 1 if user_input["Smoker"] == "Yes" else 0
     
-
-
-    def cost_calculator(cost_caluclator):
-        cost = model.predict(cost_data)
-        st.write(f'Predicted final insurance bill: {cost[0]}')
-
-    if Region == "Northeast":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 0]]
-        cost_calculator(cost_data)
-    elif Region == "Northwest":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 1, 0, 0]]
-        cost_calculator(cost_data)
-    elif Region == "Southeast":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 1, 0]]
-        cost_calculator(cost_data)
-    elif Region == "Southwest":
-        cost_data = [[Age, BMI, Child, Sex, Smoker, 0, 0, 1]]
-        cost_calculator(cost_data)
-
+    # Map region to one-hot encoded representation
+    region_mapping = {"Northeast": [1, 0, 0, 0], "Northwest": [0, 1, 0, 0], "Southeast": [0, 0, 1, 0], "Southwest": [0, 0, 0, 1]}
+    user_input["Region"] = region_mapping[user_input["Region"]]
+    
+    # Convert user input to array for prediction
+    input_data = np.array([user_input[column] for column in selected_columns]).reshape(1, -1)
+    
+    # Predict insurance premium
+    insurance_premium = model.predict(input_data)[0]
+    st.write(f'Predicted final insurance bill: {insurance_premium}')
 
 
 if __name__=='__main__':
