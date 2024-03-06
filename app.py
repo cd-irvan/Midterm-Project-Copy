@@ -360,7 +360,7 @@ elif st.session_state['current_section'] == "Prediction":
         elif column == "BMI":
             Height = st.number_input("Enter your height in metres:", value=20.0, step=0.1)
             Weight = st.number_input("Enter your weight in kilograms:", value=20.0, step=0.1)
-            if(Height != 0):
+            if Height != 0:
                BMI = Weight/(Height ** 2)
                user_input[column] = BMI
         elif column == "Children":
@@ -369,14 +369,17 @@ elif st.session_state['current_section'] == "Prediction":
             user_input[column] = st.selectbox("Are you a smoker?", options=["Yes", "No"])
         elif column == "Region":
             user_input[column] = st.selectbox("Which region do you live in?", options=["Northeast", "Southeast", "Northwest", "Southwest"])
-
-    # Convert categorical variables to numeric
-    user_input["Sex"] = 1 if user_input["Sex"] == "Male" else 0
-    user_input["Smoker"] = 1 if user_input["Smoker"] == "Yes" else 0
+    
+    # Convert categorical variables to numeric if present in user_input
+    if "Sex" in user_input:
+        user_input["Sex"] = 1 if user_input["Sex"] == "Male" else 0
+    if "Smoker" in user_input:
+        user_input["Smoker"] = 1 if user_input["Smoker"] == "Yes" else 0
     
     # Map region to one-hot encoded representation
     region_mapping = {"Northeast": [1, 0, 0, 0], "Northwest": [0, 1, 0, 0], "Southeast": [0, 0, 1, 0], "Southwest": [0, 0, 0, 1]}
-    user_input["Region"] = region_mapping[user_input["Region"]]
+    if "Region" in user_input:
+        user_input["Region"] = region_mapping[user_input["Region"]]
     
     # Convert user input to array for prediction
     input_data = np.array([user_input[column] for column in selected_columns]).reshape(1, -1)
