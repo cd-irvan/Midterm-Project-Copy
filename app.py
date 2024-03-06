@@ -201,9 +201,9 @@ if st.session_state['current_section'] == "Introduction":
     head_encoded = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
 
     if head_encoded == 'Head':
-      st.dataframe(Insurance_data_encoded.head(num))
+      st.dataframe(Insurance_data_encoded.head(num_encoded))
     else:
-      st.dataframe(Insurance_data_encoded.tail(num))
+      st.dataframe(Insurance_data_encoded.tail(num_encoded))
 
     
 elif st.session_state['current_section'] == "Visualization":
