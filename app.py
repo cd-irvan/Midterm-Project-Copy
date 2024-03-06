@@ -387,7 +387,7 @@ elif st.session_state['current_section'] == "Prediction":
     input_data = np.array([user_input[column] for column in selected_columns if column in user_input]).reshape(1, -1)
     
     # Predict insurance premium
-    insurance_premium = model.predict(input_data)[0]
+    insurance_premium = model.predict(input_data)
     st.write(f'Predicted final insurance bill: {insurance_premium}')
 
 
