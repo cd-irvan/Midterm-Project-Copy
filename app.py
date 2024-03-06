@@ -91,35 +91,13 @@ if st.session_state['current_section'] == "Introduction":
 
     st.markdown("                               ")
 
-    st.markdown("##### Project Objective")
+    st.markdown("### Project Objective")
     st.markdown("Using the visualisation and analysis of sourced medical data in the United States, we aim to obtain reasonble estimates of how much medical insurance premiums would cost based on multiple factors specific to a given patient.")
 
     st.markdown("                               ")
-    st.markdown("##### An Introduction")
+    st.markdown("### An Introduction")
 
     st.markdown("On average, healthcare spending per capita in the United States exceeds $10,000 annually, far surpassing that of other developed nations.\n")
-
-    # Medical Insurance Premiums
-    st.markdown("## Medical Insurance Premiums")
-    
-    st.markdown("Medical insurance premiums represent the amount individuals or groups pay to an insurance company for healthcare coverage. These premiums serve as a form of financial protection, providing access to medical services and helping mitigate the high costs associated with healthcare.\n")
-    
-    # Factors Influencing Premiums
-    st.markdown("### Factors Influencing Premiums")
-    
-    st.markdown("- **Qualitative Factors**: Medical insurance premiums are influenced by various qualitative factors such as age, lifestyle choices, pre-existing conditions, and even geographic location. For instance, individuals with healthier lifestyles and no pre-existing conditions may qualify for lower premiums, while those residing in areas with higher healthcare costs may face increased insurance rates.")
-    
-    st.markdown("- **Advancements in Medical Technology**: Advancements in medical technology and treatment options can affect insurance premiums. While innovative treatments may improve patient outcomes, they can also come with higher costs, leading to adjustments in insurance pricing to account for these advancements.")
-    
-    st.markdown("- **Extent of Coverage Desired**: The extent of coverage desired, including deductibles, copayments, and coverage limits, directly affects insurance premiums. Comprehensive coverage with lower out-of-pocket expenses typically entails higher premiums, while higher deductibles and copayments can reduce monthly costs.")
-    
-    st.markdown("- **Government Regulations and Healthcare Policies**: Government regulations and healthcare policies also influence insurance premiums. Changes in legislation, such as the Affordable Care Act in the United States, can impact insurance costs by mandating coverage requirements, introducing subsidies, or altering the competitive landscape of the insurance market.")
-    
-    st.markdown("- **Medical Inflation**: Most importantly, medical inflation, which outpaces general inflation rates, contributes to rising insurance premiums. As the cost of medical services, treatments, and medications increases, insurance companies adjust their premiums to accommodate these rising expenses.")
-    
-    st.markdown("- **Tailoring Insurance Policies**: Tailoring insurance policies to individual needs and preferences can impact premiums, allowing for optimization based on specific requirements. Regularly reviewing insurance coverage and comparing options ensures individuals are receiving the best value for their premiums and adjusting to changes in their circumstances.\n")
-
-    st.markdown(" On average, healthcare spending per capita in the United States exceeds $10,000 annually, far surpassing that of other developed nations. ")
 
     st.markdown("                               ")
 
