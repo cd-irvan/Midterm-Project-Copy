@@ -296,8 +296,8 @@ elif st.session_state['current_section'] == "Visualization":
       tab5.write(fig)
 
     # Add your visualization content here
-    elif st.session_state['current_section'] == "Prediction":
-        st.header("Prediction")
+elif st.session_state['current_section'] == "Prediction":
+    st.header("Prediction")
         # Add your prediction content here
     
         # Step 1: Allow users to choose independent columns
