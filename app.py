@@ -301,7 +301,7 @@ elif st.session_state['current_section'] == "Prediction":
         # Add your prediction content here
     
         # Step 1: Allow users to choose independent columns
-    selected_columns = st.multiselect("Choose independent columns:", Insurance_data_encoded.columns.tolist(), default=["Age", "BMI", "Children", "Sex", "Smoker", "Region"])
+    selected_columns = st.multiselect("Choose independent columns:", Insurance_data_encoded.columns.tolist(), default=Insurance_data_encoded.drop('charges'))
     
     X = Insurance_data_encoded[selected_columns]  # Features
     y = Insurance_data_encoded['charges']  # Target variable
