@@ -314,7 +314,7 @@ elif st.session_state['current_section'] == "Visualization":
         report_path = "report.html"
         HtmlFile = open(report_path, "r", encoding="utf-8")
         source_code = HtmlFile.read()
-        components.html(source_code, height = 10000, width = 1000)
+        components.html(source_code, height = 5000, width = 1000)
 
     
 
