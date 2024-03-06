@@ -382,7 +382,7 @@ elif st.session_state['current_section'] == "Prediction":
         user_input["Region"] = region_mapping[user_input["Region"]]
     
     # Convert user input to array for prediction
-    input_data = np.array([user_input[column] for column in selected_columns]).reshape(1, -1)
+    input_data = np.array([user_input[column] for column in selected_columns if column in user_input]).reshape(1, -1)
     
     # Predict insurance premium
     insurance_premium = model.predict(input_data)[0]
