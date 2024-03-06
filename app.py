@@ -205,12 +205,6 @@ if st.session_state['current_section'] == "Introduction":
     else:
       st.dataframe(Insurance_data_encoded.tail(num))
 
-    if head_encoded == 'Head':
-      st.dataframe(Insurance_data_encoded.head(num))
-    else:
-      st.dataframe(Insurance_data_encoded.tail(num))
-
-
     
 elif st.session_state['current_section'] == "Visualization":
     st.header("Visualization")
