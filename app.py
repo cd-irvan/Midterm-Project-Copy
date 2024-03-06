@@ -344,11 +344,6 @@ elif st.session_state['current_section'] == "Prediction":
     for feature, coeff in coefficients_with_features.items():
         st.write(f"- **{feature}**: {np.round(coeff, 2)}")
     
-    # Create LaTeX equation
-    equation = f"y = {np.round(intercept, 2)}"
-    for feature, coeff in zip(feature_names, coefficients):
-        equation += f" + ({np.round(coeff, 2)}) \\times {feature}"
-
     st.markdown("### Equation of the Linear Regression Model for Predicting Insurance Premiums")
 
     Equation_Image = Image.open("Eqn1.jpg")
