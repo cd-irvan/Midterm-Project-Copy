@@ -322,20 +322,11 @@ elif st.session_state['current_section'] == "Prediction":
     intercept = model.intercept_
     coefficients = model.coef_
     coefficients_with_features = dict(zip(selected_columns, coefficients))
+
+    from sklearn.metrics import mean_squared_error, r2_score
     
     st.subheader('Results')
     
-    st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred), 2))
-    st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred), 2))
-    st.write("3) The R-Square score of the model is ", np.round(r2_score(y_test, y_pred), 2))
-    
-    st.write(" ")
-    st.write("Plotting the actual final insurance costs versus the final insurance costs predicted by the model")
-    st.scatter_chart(data=comparison_df, x="Actual", y="Predicted", use_container_width=True)
-    st.write(" ")
-
-    st.subheader('Results')
-
     st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred), 2))
     st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred), 2))
     st.write("3) The R-Square score of the model is ", np.round(r2_score(y_test, y_pred), 2))
@@ -360,19 +351,6 @@ elif st.session_state['current_section'] == "Prediction":
 
     Equation_Image = Image.open("Eqn1.jpg")
     st.image(Equation_Image, width=700)
-
-    from sklearn.metrics import mean_squared_error, r2_score
-    
-    st.subheader('Results')
-
-    st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred ),2))  # Use mean_absolute_error directly
-    st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred),2))
-    st.write("3) The R-Square score of the model is " , np.round(r2_score(y_test, y_pred),2))
-
-    st.write(" ")
-    st.write("Plotting the actual final insurance costs versus the final insurance costs predicted by the model")
-    st.scatter_chart(data = comparison_df, x="Actual", y="Predicted", color=None, size=None, width=0, height=0, use_container_width=True)
-    st.write(" ")
 
     BMI = 0
     st.write("Enter your details below to estimate the cost of your final insurance bill : ")
