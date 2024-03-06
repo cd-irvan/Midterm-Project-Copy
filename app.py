@@ -366,7 +366,7 @@ elif st.session_state['current_section'] == "Prediction":
     User_model.fit(User_X_train, User_y_train)
 
     # Step 4: Predict the target variable for the testing set
-    User_y_pred = model.predict(User_X_test)
+    User_y_pred = User_model.predict(User_X_test)
 
     User_comparison_df = pd.DataFrame({'Actual': User_y_test, 'Predicted': User_y_pred})
 
