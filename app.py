@@ -304,7 +304,7 @@ elif st.session_state['current_section'] == "Visualization":
     with tab6:
 
       import sweetviz as sv
-      report = sv.analyze("Insurance_data.csv")
+      report = sv.analyze("insurance.csv")
       report.show_html("report.html")
     
       #Display the Sweetviz report
