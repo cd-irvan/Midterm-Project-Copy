@@ -296,47 +296,54 @@ elif st.session_state['current_section'] == "Visualization":
       tab5.write(fig)
 
     # Add your visualization content here
-elif st.session_state['current_section'] == "Prediction":
-    st.header("Prediction")
-    # Add your prediction content here
-
-    # Step 1: Define features (X) and the target variable (y)
-    X = Insurance_data_encoded.drop('charges', axis=1)  # Features
+    elif st.session_state['current_section'] == "Prediction":
+        st.header("Prediction")
+        # Add your prediction content here
+    
+        # Step 1: Allow users to choose independent columns
+    selected_columns = st.multiselect("Choose independent columns:", Insurance_data_encoded.columns.tolist(), default=["Age", "BMI", "Children", "Sex", "Smoker", "Region"])
+    
+    X = Insurance_data_encoded[selected_columns]  # Features
     y = Insurance_data_encoded['charges']  # Target variable
-
+    
     # Step 2: Split the data into training and testing sets
-    from sklearn.model_selection import train_test_split
-
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
+    
     # Step 3: Train a linear regression model
-    from sklearn.linear_model import LinearRegression
-
     model = LinearRegression()
     model.fit(X_train, y_train)
-
+    
     # Step 4: Predict the target variable for the testing set
     y_pred = model.predict(X_test)
-
-    comparison_df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
-
+    
     # Step 5: Evaluate the model
-    from sklearn.metrics import mean_squared_error, r2_score
-
     st.subheader('Linear Regression Model')
-
+    
     intercept = model.intercept_
     coefficients = model.coef_
-    feature_names = X.columns
-    coefficients_with_features = dict(zip(feature_names, coefficients))
+    coefficients_with_features = dict(zip(selected_columns, coefficients))
+    
+    st.subheader('Results')
+    
+    st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred), 2))
+    st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred), 2))
+    st.write("3) The R-Square score of the model is ", np.round(r2_score(y_test, y_pred), 2))
+    
+    st.write(" ")
+    st.write("Plotting the actual final insurance costs versus the final insurance costs predicted by the model")
+    st.scatter_chart(data=comparison_df, x="Actual", y="Predicted", use_container_width=True)
+    st.write(" ")
 
-    #st.write("Coefficients of the linear regression model:")
-    #for feature, coeff in coefficients_with_features.items():
-        #st.write(f"{feature}: {np.round(coeff, 2)}")
+    st.subheader('Results')
 
-    #equation = f"y = {np.round(intercept, 2)}"
-    #for feature, coeff in zip(feature_names, coefficients):
-        #equation += f" + ({np.round(coeff, 2)}) * {feature}"
+    st.write("1) The Mean Absolute Error of model is:", np.round(mean_absolute_error(y_test, y_pred), 2))
+    st.write("2) The Mean Square Error of the model is: ", np.round(mean_squared_error(y_test, y_pred), 2))
+    st.write("3) The R-Square score of the model is ", np.round(r2_score(y_test, y_pred), 2))
+    
+    st.write(" ")
+    st.write("Plotting the actual final insurance costs versus the final insurance costs predicted by the model")
+    st.scatter_chart(data=comparison_df, x="Actual", y="Predicted", use_container_width=True)
+    st.write(" ")
 
     st.markdown("### Coefficients of the Linear Regression Model")
 
